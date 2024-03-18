@@ -8,19 +8,25 @@ import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { NavComponent } from './nav/nav.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     PalestrantesComponent,
-    EventosComponent
-  ],
+    EventosComponent,
+    NavComponent
+   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CollapseModule.forRoot(),
+    FormsModule
   ],
 
   providers: [],

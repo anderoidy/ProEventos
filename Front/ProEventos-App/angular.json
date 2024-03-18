@@ -3,11 +3,18 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PoEventos--App": {
+    "ProEventos-App": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
         }
       },
       "root": "",
@@ -17,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/po-eventos--app",
+            "outputPath": "dist/pro-eventos-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -32,12 +39,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -67,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "PoEventos--App:build:production"
+              "buildTarget": "ProEventos-App:build:production"
             },
             "development": {
-              "buildTarget": "PoEventos--App:build:development"
+              "buildTarget": "ProEventos-App:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "PoEventos--App:build"
+            "buildTarget": "ProEventos-App:build"
           }
         },
         "test": {
@@ -104,6 +106,6 @@
     }
   },
   "cli": {
-    "analytics": "1fba0ff9-9f2d-439f-aea1-8587963fda34"
+    "analytics": "0254a9bb-e820-4fdb-ade2-f04c463f2cb0"
   }
 }
