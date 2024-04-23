@@ -25,3 +25,36 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+## Lista de Comandos para organizar o projeto, estrutura de pastas e o arquivo .sln
+
+Comandos para organizar o projeto 
+
+`dotnet new sln -n ProEventos`   -> cria o arquivo ProEventos.sln
+
+`dotnet new classlib -n ProEventos.Persistence`  -> cria a pasta ProEventos.Persistence
+
+
+`dotnet new classlib -n ProEventos.Domain`  -> cria a pasta ProEventos.Domain
+
+
+`dotnet new classlib -n ProEventos.Application`  -> cria a pasta ProEventos.Application
+
+## Referenciando o Projeto
+
+## Comandos para adicionar os arquivos dentro dos novos diretorios 
+
+PS C:\Users\Thinkpad\Documents\ProEventos\Back\src> dotnet sln ProEventos.sln add ProEventos.Application
+O projeto 'ProEventos.Application\ProEventos.Application.csproj' foi adicionado à solução.
+
+PS C:\Users\Thinkpad\Documents\ProEventos\Back\src> dotnet sln ProEventos.sln add ProEventos.Domain
+O projeto 'ProEventos.Domain\ProEventos.Domain.csproj' foi adicionado à solução.
+
+PS C:\Users\Thinkpad\Documents\ProEventos\Back\src> dotnet sln ProEventos.sln add ProEventos.Persistence
+O projeto 'ProEventos.Persistence\ProEventos.Persistence.csproj' foi adicionado à solução.
+PS C:\Users\Thinkpad\Documents\ProEventos\Back\src> 
+
+## Comandos para referencir 
+
