@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ProEventos.Domain;
-using Microsoft.EntityFrameworkCore;
+using ProEventos.Persistence.Contextos;
 
 namespace ProEventos.Persistence
 {
     public class ProEventosPersistence : IProEventosPersistence
     {
-        private readonly ProEventosContext _context;
+        public readonly ProEventosContext _context;
+
         public ProEventosPersistence(ProEventosContext context)
         {
             _context = context;            
         }
-
         public void Add<T>(T entity) where T : class
         {
             _context.Add(entity);
@@ -34,31 +34,14 @@ namespace ProEventos.Persistence
         {
             _context.RemoveRange(entityArray);
         }
+
         
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
         }
 
-        public async Task<Evento[]> GetAllEventosAsync(bool includepalestrantes = false)
-        {
-            IQueryable<Evento> query = _context.Eventos
-                .Include(e => e.Lotes)
-                .Include(e => e.RedesSociais);            
-
-            if(includepalestrantes) 
-            {
-                query = query
-                   .Include(e => e.PalestrantesEventos)
-                   .ThenInclude(pe => pe.Palestrante);
-            }
-
-            query = query.OrderBy(e => e.Id);
-            
-            return await query.ToArrayAsync();  
-        }
-
-        public Task<Palestrante[]> GetAllEventosByNomeAsync(string nome, bool includeEventos)
+        public Task<Evento[]> GetAllEventosAsync(bool includepalestrantes)
         {
             throw new NotImplementedException();
         }
@@ -68,24 +51,25 @@ namespace ProEventos.Persistence
             throw new NotImplementedException();
         }
 
-        public Task<Evento[]> GetAllEventoByIdAsync(string EventoId, bool includepalestrantes)
+        public Task<Evento> GetEventoByIdAsync(int EventoId, bool includepalestrantes)
         {
             throw new NotImplementedException();
-        }      
+        }
 
         public Task<Palestrante[]> GetAllPalestrantesAsync(bool includeEventos)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Palestrante[]> GetAllPalestrantesByNome(bool includeEventos)
+        public Task<Palestrante[]> GetAllPalestrantesByNomeAsync(string Nome, bool includeEventos)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Palestrante[]> GetAllPalestranteByIdAsync(string PalestranteId, bool includeEventos)
+        public Task<Palestrante> GetPalestranteByIdAsync(int PalestranteId, bool includeEventos)
         {
             throw new NotImplementedException();
-        } 
+        }
+
     }
 }

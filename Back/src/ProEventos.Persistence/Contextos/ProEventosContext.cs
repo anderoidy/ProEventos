@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
 
-namespace ProEventos.Persistence
-{
+namespace ProEventos.Persistence.Contextos
+{   
     public class ProEventosContext : DbContext
     {
         public ProEventosContext(DbContextOptions<ProEventosContext> options) : base(options) {
