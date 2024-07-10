@@ -84,6 +84,11 @@ namespace ProEventos.Application.Contratos
         {
             throw new NotImplementedException();
         }
+
+        public Task<Evento> UpdateEvento(int eventoId, string model)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
