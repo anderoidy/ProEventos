@@ -17,13 +17,13 @@ namespace ProEventos.Persistence
             _context = context;            
         }
 
-        public async Task<Evento[]> GetAllEventosAsync(bool includepalestrantes = false)
+        public async Task<Evento[]> GetAllEventosAsync(bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _context.Eventos
                 .Include(e => e.Lotes)
                 .Include(e => e.RedesSociais);            
 
-            if(includepalestrantes) 
+            if(includePalestrantes) 
             {
                 query = query
                    .Include(e => e.PalestrantesEventos)
@@ -40,13 +40,13 @@ namespace ProEventos.Persistence
             throw new NotImplementedException();
         }
 
-        public async Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includepalestrantes  = false)
+        public async Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes  = false)
         {
             IQueryable<Evento> query = _context.Eventos
             .Include(e => e.Lotes)
             .Include(e => e.RedesSociais);            
 
-            if(includepalestrantes) 
+            if(includePalestrantes) 
             {
                 query = query
                    .Include(e => e.PalestrantesEventos)
@@ -58,13 +58,13 @@ namespace ProEventos.Persistence
             return await query.ToArrayAsync();  
         }
 
-        public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includepalestrantes = false)
+        public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrantes = false)
         {
                 IQueryable<Evento> query = _context.Eventos
                 .Include(e => e.Lotes)
                 .Include(e => e.RedesSociais);            
 
-            if(includepalestrantes) 
+            if(includePalestrantes) 
             {
                 query = query
                    .Include(e => e.PalestrantesEventos)
@@ -77,12 +77,7 @@ namespace ProEventos.Persistence
             return await query.FirstOrDefaultAsync();  
         }      
 
-        public Task<Evento[]> GetAllEventoByIdAsync(string eventoId, bool includepalestrantes)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Evento> IEventoPersist.GetAllEventoByIdAsync(string EventoId, bool includepalestrantes)
+        public Task<Evento[]> GetAllEventoByIdAsync(string eventoId, bool includePalestrantes)
         {
             throw new NotImplementedException();
         }

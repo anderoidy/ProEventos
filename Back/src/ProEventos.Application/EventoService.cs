@@ -20,6 +20,7 @@ namespace ProEventos.Application.Contratos
             try
             {
                 _geralPersist.Add<Evento>(model);
+                
                 if(await _geralPersist.SaveChangesAsync())
                 {                                                                                                                                                                                                                                                                                                                                                                                                                                   
                     return await _eventoPersist.GetEventoByIdAsync(model.Id, false);
@@ -32,9 +33,9 @@ namespace ProEventos.Application.Contratos
             }
         }
 
-        public async Task<Evento> UpdateEvento(int eventoId, Evento model)
+       public async Task<Evento> UpdateEvento(int eventoId, string model)
         {
-            try 
+              try 
             {
                 var evento = await _eventoPersist.GetEventoByIdAsync(eventoId, false);
                 if (evento == null) return null;
@@ -42,6 +43,7 @@ namespace ProEventos.Application.Contratos
                 model.Id = evento.Id;
 
                 _geralPersist.Update(model);
+
                 if(await _geralPersist.SaveChangesAsync())
                 {
                     return await _eventoPersist.GetEventoByIdAsync(model.Id, false);
@@ -54,6 +56,7 @@ namespace ProEventos.Application.Contratos
             }
         }
 
+
         public async Task<bool> DeleteEvento(int eventoId)
         {
             try 
@@ -62,6 +65,7 @@ namespace ProEventos.Application.Contratos
                 if (evento == null) throw new Exception("Evento para deletar nao encontrado.");
 
                 _geralPersist.Delete<Evento>(evento);
+                
                 return await _geralPersist.SaveChangesAsync();
             } 
             catch (Exception ex)
@@ -70,11 +74,7 @@ namespace ProEventos.Application.Contratos
             }
         }
 
-        public Task<Evento> GetEventoByIdAsync(string EventoId, bool includepalestrantes = false)
-        {
-            throw new NotImplementedException();
-        }
-
+   
         public Task<Evento[]> GetAllEventosAsync(bool includepalestrantes = false)
         {
             throw new NotImplementedException();
@@ -85,7 +85,14 @@ namespace ProEventos.Application.Contratos
             throw new NotImplementedException();
         }
 
-        public Task<Evento> UpdateEvento(int eventoId, string model)
+        public Task<Evento> GetEventoByIdAsync(string EventoId, bool includepalestrantes = false)
+        {
+            throw new NotImplementedException();
+        }
+
+
+     
+        public Task<Evento> GetEventoByIdAsync(int EventoId, bool includepPalestrantes = false)
         {
             throw new NotImplementedException();
         }
