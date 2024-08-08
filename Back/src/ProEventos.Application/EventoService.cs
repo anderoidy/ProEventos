@@ -1,9 +1,10 @@
 using System;                                                                                                                                                                                           
 using System.Threading.Tasks;
+using ProEventos.Application.Contratos;
 using ProEventos.Domain;
 using ProEventos.Persistence.Contratos;
 
-namespace ProEventos.Application.Contratos
+namespace ProEventos.Application
 {
     public class EventoService : IEventoService
     {
@@ -33,7 +34,7 @@ namespace ProEventos.Application.Contratos
             }
         }
 
-       public async Task<Evento> UpdateEvento(int eventoId, string model)
+       public async Task<Evento> UpdateEvento(int eventoId, Evento model)
         {
               try 
             {
@@ -74,28 +75,49 @@ namespace ProEventos.Application.Contratos
             }
         }
 
-   
-        public Task<Evento[]> GetAllEventosAsync(bool includepalestrantes = false)
+        public async Task<Evento[]> GetAllEventosAsync(bool includePalestrantes = false)
         {
-            throw new NotImplementedException();
+            try
+            {
+                 var eventos = await _eventoPersist.GetAllEventosAsync(includePalestrantes);
+                 if(eventos == null) return null;
+
+                 return eventos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includepalestrantes = false)
+        public async Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes = false)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var eventos = await _eventoPersist.GetAllEventosByTemaAsync(tema, includePalestrantes);
+                if(eventos == null) return null;
+
+                return eventos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<Evento> GetEventoByIdAsync(string EventoId, bool includepalestrantes = false)
+        public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includepPalestrantes = false)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                var eventos = await _eventoPersist.GetEventoByIdAsync(eventoId, includepPalestrantes);
+                if(eventos == null) return null;
 
-
-     
-        public Task<Evento> GetEventoByIdAsync(int EventoId, bool includepPalestrantes = false)
-        {
-            throw new NotImplementedException();
+                return eventos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
-
 }

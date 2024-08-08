@@ -35,11 +35,6 @@ namespace ProEventos.Persistence
             return await query.ToArrayAsync();  
         }
 
-        public Task<Palestrante[]> GetAllEventosByNomeAsync(string nome, bool includeEventos)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes  = false)
         {
             IQueryable<Evento> query = _context.Eventos
@@ -75,11 +70,6 @@ namespace ProEventos.Persistence
                     .Where(e => e.Id == eventoId);
             
             return await query.FirstOrDefaultAsync();  
-        }      
-
-        public Task<Evento[]> GetAllEventoByIdAsync(string eventoId, bool includePalestrantes)
-        {
-            throw new NotImplementedException();
-        }
+        }     
     }
 }
