@@ -11,13 +11,16 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NavComponent } from './nav/nav.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FormsModule } from '@angular/forms';
+import { EventoService } from './services/evento.service';
+import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PalestrantesComponent,
     EventosComponent,
-    NavComponent
+    NavComponent,
+    DateTimeFormatPipe
    ],
   imports: [
     BrowserModule,
@@ -29,7 +32,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
 
-  providers: [],
+  providers: [
+    EventoService
+  ],
   bootstrap: [AppComponent]
 
 })
