@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { filter } from 'rxjs';
 import { EventoService } from '../services/evento.service';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Evento } from '../models/Evento';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { DateTimeFormatPipe } from '../helpers/DateTimeFormat.pipe';
+
 
 @Component({
   selector: 'app-eventos',
@@ -11,6 +13,7 @@ import { Evento } from '../models/Evento';
 })
 export class EventosComponent implements OnInit {
 
+  public modalRef?: BsModalRef;
   public eventos: Evento[] = []
   public eventosFiltrados: Evento[] = []
 
@@ -29,14 +32,17 @@ export class EventosComponent implements OnInit {
   }
 
   public filtrarEventos(filtrarPor: string): Evento[] {
-      filtrarPor = filtrarPor.toLocaleLowerCase()
+      filtrarPor = filtrarPor.toLocaleLowerCase();
       return this.eventos.filter(
-        (evento: { tema: string, local: string; }) => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1 ||
+        evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1 ||
         evento.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1
       )
   }
 
-  constructor(private eventoService: EventoService) { }
+  constructor(
+    private eventoService: EventoService,
+    private modalService: BsModalService
+  ) { }
 
   ngOnInit() : void {
       this.getEventos();
@@ -55,6 +61,18 @@ export class EventosComponent implements OnInit {
         error: (error: any) => console.log(error)
       });
   }
+
+    public openModal(template: TemplateRef<void>): void {
+      this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+    }
+
+    confirm(): void {
+      this.modalRef?.hide();
+    }
+
+    decline(): void {
+      this.modalRef?.hide();
+    }
 }
 
 

@@ -3,7 +3,7 @@ import { Constants } from '../util/constants';
 import { DatePipe } from '@angular/common';
 
 @Pipe({
-  name: 'DateFormat',
+  name: 'DateFormatPipe',
 })
 export class DateTimeFormatPipe extends DatePipe implements PipeTransform {
 
