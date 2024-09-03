@@ -1,8 +1,9 @@
-import { EventoService } from '../services/evento.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Evento } from '../models/Evento';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { DateTimeFormatPipe } from '../helpers/DateTimeFormat.pipe';
+import { ToastrService } from 'ngx-toastr';
+import { EventoService } from '../services/evento.service';
+import { Evento } from '../models/Evento';
+
 
 
 @Component({
@@ -12,8 +13,7 @@ import { DateTimeFormatPipe } from '../helpers/DateTimeFormat.pipe';
   //providers: [EventoService]
 })
 export class EventosComponent implements OnInit {
-
-  public modalRef?: BsModalRef;
+  modalRef?: BsModalRef;
   public eventos: Evento[] = []
   public eventosFiltrados: Evento[] = []
 
@@ -36,12 +36,13 @@ export class EventosComponent implements OnInit {
       return this.eventos.filter(
         evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1 ||
         evento.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1
-      )
+      );
   }
 
   constructor(
     private eventoService: EventoService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() : void {
@@ -68,6 +69,7 @@ export class EventosComponent implements OnInit {
 
     confirm(): void {
       this.modalRef?.hide();
+      this.toastr.success('Deletado', 'O Evento foi Deletado com Sucesso!');
     }
 
     decline(): void {
