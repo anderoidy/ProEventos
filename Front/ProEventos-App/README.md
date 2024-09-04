@@ -1,60 +1,118 @@
-# ProEventosApp
+Para criar um README conforme as boas práticas, é importante incluir seções que expliquem o propósito do projeto, como configurá-lo, suas funcionalidades, e como contribuir, entre outros aspectos. Aqui está uma sugestão de README para o projeto `ProEventos`:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+---
 
-## Development server
+# ProEventos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![ProEventos](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![.NET](https://img.shields.io/badge/.NET-5.0-blue)
+![Angular](https://img.shields.io/badge/Angular-11-red)
 
-## Code scaffolding
+ProEventos é uma aplicação web para gerenciamento de eventos, permitindo o cadastro de palestrantes, participantes e a organização de detalhes do evento.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Sumário
 
-## Build
+- [Instalação](#instalação)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalação
 
-## Running unit tests
+### Pré-requisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [Angular CLI](https://angular.io/cli) (versão 11 ou superior)
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
-## Running end-to-end tests
+### Passos para Instalar
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/anderoidy/ProEventos.git
+   cd ProEventos
+   ```
 
-## Further help
+2. Instale as dependências do projeto backend:
+   ```bash
+   cd backend/ProEventos.API
+   dotnet restore
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Configure a string de conexão com o banco de dados no arquivo `appsettings.json`:
+   ```json
+   "ConnectionStrings": {
+     "DefaultConnection": "Server=YOUR_SERVER;Database=ProEventos;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
+   }
+   ```
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+4. Execute as migrações do banco de dados:
+   ```bash
+   dotnet ef database update
+   ```
 
-## Lista de Comandos para organizar o projeto, estrutura de pastas e o arquivo .sln
+5. Inicie a aplicação backend:
+   ```bash
+   dotnet run
+   ```
 
-Comandos para organizar o projeto 
+6. Instale as dependências do projeto frontend:
+   ```bash
+   cd ../../frontend/proeventos-app
+   npm install
+   ```
 
-`dotnet new sln -n ProEventos`   -> cria o arquivo ProEventos.sln
+7. Inicie a aplicação frontend:
+   ```bash
+   ng serve
+   ```
 
-`dotnet new classlib -n ProEventos.Persistence`  -> cria a pasta ProEventos.Persistence
+8. Acesse a aplicação em `http://localhost:4200`.
 
+## Funcionalidades
 
-`dotnet new classlib -n ProEventos.Domain`  -> cria a pasta ProEventos.Domain
+- **Gerenciamento de Eventos:** Crie, edite e exclua eventos.
+- **Cadastro de Palestrantes:** Adicione e associe palestrantes aos eventos.
+- **Inscrição de Participantes:** Permita que usuários se inscrevam nos eventos.
+- **Gerenciamento de Lotes:** Controle os lotes de ingressos disponíveis para cada evento.
 
+## Tecnologias Utilizadas
 
-`dotnet new classlib -n ProEventos.Application`  -> cria a pasta ProEventos.Application
+- **Backend:**
+  - .NET 5.0
+  - Entity Framework Core
+  - SQL Server
 
-## Referenciando o Projeto
+- **Frontend:**
+  - Angular 11
+  - TypeScript
+  - Bootstrap
 
-## Comandos para adicionar os arquivos dentro dos novos diretorios 
+## Contribuição
 
-PS C:\Users\Thinkpad\Documents\ProEventos\Back\src> dotnet sln ProEventos.sln add ProEventos.Application
-O projeto 'ProEventos.Application\ProEventos.Application.csproj' foi adicionado à solução.
+Contribuições são bem-vindas! Para contribuir com o ProEventos, siga os passos abaixo:
 
-PS C:\Users\Thinkpad\Documents\ProEventos\Back\src> dotnet sln ProEventos.sln add ProEventos.Domain
-O projeto 'ProEventos.Domain\ProEventos.Domain.csproj' foi adicionado à solução.
+1. Faça um fork do repositório.
+2. Crie uma nova branch com sua feature ou correção:
+   ```bash
+   git checkout -b minha-feature
+   ```
+3. Commit suas mudanças:
+   ```bash
+   git commit -m 'Adicionei minha feature'
+   ```
+4. Envie para o repositório:
+   ```bash
+   git push origin minha-feature
+   ```
+5. Abra um Pull Request.
 
-PS C:\Users\Thinkpad\Documents\ProEventos\Back\src> dotnet sln ProEventos.sln add ProEventos.Persistence
-O projeto 'ProEventos.Persistence\ProEventos.Persistence.csproj' foi adicionado à solução.
-PS C:\Users\Thinkpad\Documents\ProEventos\Back\src> 
+## Licença
 
-## Comandos para referencir 
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
+---
+
+Você pode ajustar e complementar as informações conforme necessário para refletir melhor as especificidades do seu projeto.
