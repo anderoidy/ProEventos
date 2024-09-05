@@ -1,4 +1,4 @@
-![Tela do Sistemas](https://vscode.dev/github/anderoidy/ProEventos/blob/master/images/proEventos.png)
+![Tela do Sistemas](images/proEventos.png)
 
 
 # ProEventos
