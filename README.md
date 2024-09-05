@@ -1,6 +1,5 @@
-Para criar um README conforme as boas práticas, é importante incluir seções que expliquem o propósito do projeto, como configurá-lo, suas funcionalidades, e como contribuir, entre outros aspectos. Aqui está uma sugestão de README para o projeto `ProEventos`:
+![Tela do Sistemas](images\proEventos.png)
 
----
 
 # ProEventos
 
