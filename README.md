@@ -1,4 +1,5 @@
-![Tela do Sistemas](images\proEventos.png)
+![Print do ProEventos](./images/proEventos.png)
+
 
 
 # ProEventos
@@ -111,7 +112,3 @@ Contribuições são bem-vindas! Para contribuir com o ProEventos, siga os passo
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-Você pode ajustar e complementar as informações conforme necessário para refletir melhor as especificidades do seu projeto.
