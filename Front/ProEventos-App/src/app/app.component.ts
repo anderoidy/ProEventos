@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EventosComponent } from "./eventos/eventos.component";
-import { PalestrantesComponent } from './palestrantes/palestrantes.component';
+import { EventosComponent } from "./components/eventos/eventos.component";
+import { PalestrantesComponent } from './components/palestrantes/palestrantes.component';
 
 @Component({
     selector: 'app-root',
