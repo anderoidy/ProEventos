@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { PalestrantesComponent } from './components/palestrantes/palestrantes.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { AppRoutingModule } from './app-routing.module';
-import { NavComponent } from './nav/nav.component';
+import { NavComponent } from './shared/nav/nav.component';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
