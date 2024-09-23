@@ -1,4 +1,16 @@
 i {
   margin-left: 10px;
   font-size: 48px;
+  margin-right: 8px;
+
+}
+
+.container {
+  position: relative; /* Define o container como relativo para posicionar o botão dentro dele */
+  height: 100px; /* Ajuste conforme necessário */
+}
+
+button {
+  position: absolute; /* Posiciona o botão de forma absoluta em relação ao container */
+  right: 8%; /* Ajuste a distância da direita conforme necessário */
 }
