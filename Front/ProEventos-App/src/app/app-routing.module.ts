@@ -11,10 +11,10 @@ import { EventoListaComponent } from './components/eventos/evento-lista/evento-l
 const routes: Routes = [
   { path: 'eventos', component: EventosComponent,
   children: [
-    { path: 'eventos/:id', component: EventoDetalheComponent },
+    { path: 'detalhe/:id', component: EventoDetalheComponent },
     { path: 'detalhe', component: EventoDetalheComponent },
     { path: 'lista', component: EventoListaComponent },
-  ],
+  ]
 },
   { path: 'dashboard', component: DashboardComponent},
   { path: 'contatos', component: ContatosComponent},
